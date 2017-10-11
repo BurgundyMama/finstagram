@@ -1,0 +1,25 @@
+<article class="post">
+                <div class="user-info">
+                    <img src="<%= post.user.avatar_url %>" alt="<%= post.user.username %>">
+                    <h2><%= post.user.username %></h2>
+                    <h3><%= post.humanized_time_ago %></h3>
+                </div>
+                
+                <a class="photo" href="#">
+                    <img src="<%= post.photo_url %>" alt="posts from <%= post.user.username %>">
+                    </a>
+                    
+                <div class="actions">
+                    <span><span class="bold-numbers"><%= post.like_count %></span> likes</span>
+                    <span class="comment-count"><span class="bold-numbers"><%= post.comment_count %></span> comments</span>
+                </div>    
+                <ul class="comments">
+                    <% post.comments.each do |comment| %>
+                    <li>
+                        <p>
+                            <%= comment.user.username %>: <%= comment.text %>
+                        </p>
+                    </li>
+                    <% end %>
+                </ul>
+            </article>
